@@ -1,8 +1,8 @@
-pandas 
+pandas
 jupyter
 notebook
 ipython
 ipykernel
-YDATA_profiling 
-request 
-matplolib
+matplotlib
+requests
+# ydata-profiling==4.7.0   (désactivé si tu restes sur Python 3.13)
