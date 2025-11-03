@@ -1,0 +1,8 @@
+pandas 
+jupyter
+notebook
+ipython
+ipykernel
+YDATA_profiling 
+request 
+matplolib
