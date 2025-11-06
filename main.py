@@ -11,13 +11,14 @@ def main(station:str)-> pd.DataFrame :
     try:
         DataFrameValidator.validate(df)
         print("✅ Données valides :", len(df), "lignes")
-        print(df.head())
+        print(df)
     except Exception as e:
         print("❌ Erreur :", e)
 
 if __name__ == "__main__":
     # Exemple d'exécution : station "compans_cafarelli"
     df = main("compans_cafarelli")
-    print(df.head())
+    
+
 
 
