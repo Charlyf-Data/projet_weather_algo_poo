@@ -1,8 +1,9 @@
 from extractors.meteo_toulouse_extractor import MeteoToulouseExtractor
 from validators.dataframe_validator import DataFrameValidator
+import pandas as pd 
 
-def main():
-    extractor = MeteoToulouseExtractor()
+def main(station:str)-> pd.DataFrame : 
+    extractor = MeteoToulouseExtractor(station)
     data_json = extractor.extract()
     df = extractor.to_dataframe(data_json)
 
@@ -15,4 +16,8 @@ def main():
         print("❌ Erreur :", e)
 
 if __name__ == "__main__":
-    main()
+    # Exemple d'exécution : station "compans_cafarelli"
+    df = main("compans_cafarelli")
+    print(df.head())
+
+
