@@ -1,24 +1,13 @@
-from extractors.meteo_toulouse_extractor import MeteoToulouseExtractor
-from validators.dataframe_validator import DataFrameValidator
-import pandas as pd 
 
-def main(station:str)-> pd.DataFrame : 
-    extractor = MeteoToulouseExtractor(station)
-    data_json = extractor.extract()
-    df = extractor.to_dataframe(data_json)
-
-    # Validation
-    try:
-        DataFrameValidator.validate(df)
-        print("✅ Données valides :", len(df), "lignes")
-        print(df)
-    except Exception as e:
-        print("❌ Erreur :", e)
+# main.py
+from transform.transformator import CsvTransform
 
 if __name__ == "__main__":
-    # Exemple d'exécution : station "compans_cafarelli"
-    df = main("compans_cafarelli")
-    
+    # On lance uniquement la version CSV pour le moment
+    csv_transform = CsvTransform()
+    df = csv_transform.run()           # Extrait et fusionne toutes les stations
+    print(df.head())                   # 👀 Affiche un aperçu dans le terminal
+    csv_transform.save_to_csv()        # Sauvegarde ou met à jour le CSV
 
 
 
