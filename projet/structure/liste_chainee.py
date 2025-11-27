@@ -3,7 +3,7 @@ from .collection import Collection
 
 class Noeud:
     """
-    Représente un élément (nœud) de la liste chaînée.
+    Représente un élément (noeud) de la liste chaînée.
     Chaque noeud contient une valeur et une référence vers le prochain nœud.
     """
     def __init__(self, valeur):
