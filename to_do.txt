@@ -7,3 +7,6 @@ A finir avant le 15 décembre :
 - implémenter une File pour les extractions (API, CSV)
 
 - implémenter un Dictionnaire pour la configuration (url, station ...)
+
+
+- travailler plus rapidement, en C, trouver la bibliotheque cython 

@@ -1,6 +1,6 @@
 # csv_extractor.py
 import pandas as pd
-from .extractors.base_extractor import BaseExtractor
+from extractors.base_extractor import BaseExtractor
 
 class CSVExtractor(BaseExtractor):
     def __init__(self, chemin_fichier: str):

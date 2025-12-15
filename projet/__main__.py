@@ -1,6 +1,7 @@
-from extractors.meteo_toulouse_extractor_chainee import MeteoToulouseExtractorChainnee
-from extractors.stations_liste import ListeStations, Station
-from extractors.stations_config import STATIONS
+from .extractors.meteo_toulouse_extractor_chainee import MeteoToulouseExtractorChainnee
+from .extractors.stations_liste import ListeStations, Station
+from .extractors.stations_config import STATIONS
+from .extractors.api_extractor import ApiExtractor
 
 
 def construire_liste_utilisateur() -> ListeStations:
@@ -62,9 +63,8 @@ def main():
         print(f"\nRécupération des données pour la station : {station.cle}")
 
         extracteur = MeteoToulouseExtractorChainnee(station.cle)
-
         # Nom de méthode selon ton ApiExtractor (à adapter si ce n'est pas get_data)
-        data_json = extracteur.get_data()
+        data_json = extracteur.extract()
 
         df = extracteur.to_dataframe(data_json)
         print(df.head())
