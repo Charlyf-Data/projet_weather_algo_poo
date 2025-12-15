@@ -1,8 +1,6 @@
+from .pipeline import PipelineBuilder
 from .extractors.meteo_toulouse_extractor import MeteoToulouseExtractorChainnee
 from .extractors.stations_liste import ListeStations, Station
-# from .extractors.stations_config import Config <-- N'est plus nécessaire ici
-# from .extractors.api_extractor import ApiExtractor <-- N'est plus nécessaire ici
-
 
 def construire_liste_utilisateur() -> ListeStations:
     """
@@ -65,24 +63,27 @@ def main():
     print("\nListe chaînée créée avec les stations suivantes :")
     liste_stations.afficher_stations()
 
-    # 2. Pour chaque station de la liste, on fait un appel API
+    # 2. Pour chaque station de la liste, on utilise la Pipeline via le Builder
     for station in liste_stations:
-        print(f"\nRécupération des données pour la station : {station.cle}")
+        print(f"\n--- Traitement pour la station : {station.cle} ---")
 
-        # Instancie l'extracteur. Il hérite d'ApiExtractor et configure l'URL/params.
-        extracteur = MeteoToulouseExtractorChainnee(station.cle)
-        
-        # Effectue l'appel API (utilise la méthode extract() de ApiExtractor)
         try:
-            data_json = extracteur.extract()
+            # Construction de la pipeline via le Builder (utilise la Factory en interne)
+            pipeline = (
+                PipelineBuilder()
+                .with_extractor("meteo_toulouse", station=station.cle)
+                # On peut ajouter .with_validator(...) ou .with_saver(...) ici si besoin
+                .build()
+            )
+            
+            # Exécution de la pipeline (utilise le Décorateur sur run())
+            df = pipeline.run()
+            
+            print(f"Aperçu des données pour {station.cle} :")
+            print(df.head())
+            
         except Exception as e:
-            print(f"Échec de l'extraction pour {station.cle}: {e}")
-            continue # Passe à la station suivante en cas d'erreur
-
-        # Convertit les données JSON en DataFrame (méthode de MeteoToulouseExtractorChainnee)
-        df = extracteur.to_dataframe(data_json)
-        print(df.head())
-
+            print(f"Erreur dans la pipeline pour {station.cle}: {e}")
 
 if __name__ == "__main__":
     main()

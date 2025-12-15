@@ -1,6 +1,6 @@
 # csv_extractor.py
 import pandas as pd
-from extractors.base_extractor import BaseExtractor
+from .base_extractor import BaseExtractor
 
 class CSVExtractor(BaseExtractor):
     def __init__(self, chemin_fichier: str):
@@ -10,8 +10,8 @@ class CSVExtractor(BaseExtractor):
         """Lit un CSV et renvoie un DataFrame"""
         try:
             df = pd.read_csv(self.chemin_fichier)
-            print("✅ Fichier CSV chargé avec succès")
+            print("[OK] Fichier CSV chargé avec succès")
             return df
         except FileNotFoundError:
-            print(f"❌ Fichier introuvable : {self.chemin_fichier}")
+            print(f"[ERROR] Fichier introuvable : {self.chemin_fichier}")
             return pd.DataFrame()
