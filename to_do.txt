@@ -1,12 +1,10 @@
-A finir avant le 15 décembre : 
-
-- structurer son code Python (__main__.py,__init__.py, sous dissiers...)
-
-- implémenter une Liste chainée pour l'affichage météo stations par stations 
-
-- implémenter une File pour les extractions (API, CSV)
-
-- implémenter un Dictionnaire pour la configuration (url, station ...)
-
 
 - travailler plus rapidement, en C, trouver la bibliotheque cython 
+
+A finir avant le 19 janvier :
+
+Implémenter au moins 3 Design Pattern 
+Documenter son code     
+README.md -→ Comment démarrer le projet 
+
+Git Puch
