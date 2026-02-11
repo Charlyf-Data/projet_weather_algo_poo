@@ -1,3 +1,4 @@
+import pytest
 from projet.extractors.api_extractor import ApiExtractor
 from unittest.mock import patch, Mock
 
@@ -17,6 +18,7 @@ def test_api_extractor_extract_success():
 
     assert result == {"data": "ok"}
 
+
 def test_api_extractor_extract_failure():
     url = "https://example.com/api/data"
     params = {"key": "value"}
@@ -25,8 +27,10 @@ def test_api_extractor_extract_failure():
 
     mock_response = Mock()
     mock_response.status_code = 500
+    mock_response.text = "Internal Server Error"
 
     with patch("projet.extractors.api_extractor.requests.get", return_value=mock_response):
-        result = extractor.extract()
+        with pytest.raises(Exception) as exc_info:
+            extractor.extract()
 
-    assert result is None   
+    assert "Erreur API 500" in str(exc_info.value)
