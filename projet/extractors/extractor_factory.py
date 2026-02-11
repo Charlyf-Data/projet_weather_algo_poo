@@ -1,6 +1,6 @@
 from .csv_extractor import CSVExtractor
 from .api_extractor import ApiExtractor
-from .meteo_toulouse_extractor import MeteoToulouseExtractorChainnee
+from .meteo_toulouse_extractor_chainee import MeteoToulouseExtractorChainnee
 
 class ExtractorFactory:
     """

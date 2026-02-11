@@ -1,5 +1,5 @@
-from .extractors.extractor_factory import ExtractorFactory
-from .validators.dataframe_validator import DataFrameValidator
+from .extractor_factory import ExtractorFactory
+from ..validators.dataframe_validator import DataFrameValidator
 from .decorators import log_execution_time  # Import du décorateur
 import pandas as pd
 
