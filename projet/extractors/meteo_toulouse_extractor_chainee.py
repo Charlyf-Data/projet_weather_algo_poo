@@ -2,7 +2,6 @@
 
 from .api_extractor import ApiExtractor
 from urllib.parse import quote
-# 💡 CORRECTION : Importez l'instance Singleton que vous avez exportée dans stations_config.py
 from .stations_config import CONFIG_SINGLETON 
 from .stations_liste import ListeStations, Station 
 import pandas as pd

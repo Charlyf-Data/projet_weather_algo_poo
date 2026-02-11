@@ -23,7 +23,7 @@ class Station:
 
 class ListeStations(ListeChainee):
     """
-    Liste chaînée spécialisée pour manipuler des Station.
+    Liste chaînée pour manipuler des Stations.
     """
 
     def charger_depuis_config(self, config_dict: dict):
