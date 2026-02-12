@@ -9,7 +9,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY projet/ ./projet/
+COPY entrypoint.sh .
+
+RUN chmod +x entrypoint.sh
 
 ENV PYTHONPATH=/app
 
-CMD ["python", "-m", "projet"]
+CMD ["./entrypoint.sh"]

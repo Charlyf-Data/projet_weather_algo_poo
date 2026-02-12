@@ -1,4 +1,4 @@
-from .collection import Collection
+from .base_liste_chainee import BaseListeChainee
 
 
 class NoeudFIFO:
@@ -8,19 +8,26 @@ class NoeudFIFO:
         self.prochain = None
 
 
-class FileFIFO(Collection):
-    """Implémentation minimale d'une file FIFO (First In, First Out)."""
+class FileFIFO(BaseListeChainee):
+    """
+    Implémentation d'une file FIFO (First In, First Out).
+    """
 
     def __init__(self):
-        self.premier = None     # tête
-        self.dernier = None     # queue
+        super().__init__()
+        self.dernier = None  # pointeur de queue
+
+    # -----------------------
+    # Méthodes Collection
+    # -----------------------
 
     def ajouter(self, valeur):
-        """Ajoute un élément en queue de file (enqueue)."""
+        """
+        Ajoute un élément en queue de file (enqueue).
+        """
         nouveau = NoeudFIFO(valeur)
 
         if self.premier is None:
-            # File vide
             self.premier = nouveau
             self.dernier = nouveau
         else:
@@ -28,7 +35,9 @@ class FileFIFO(Collection):
             self.dernier = nouveau
 
     def retirer(self):
-        """Retire et renvoie l’élément en tête de file (dequeue)."""
+        """
+        Retire et renvoie l’élément en tête de file (dequeue).
+        """
         if self.est_vide():
             return None
 
@@ -40,21 +49,14 @@ class FileFIFO(Collection):
 
         return valeur
 
-    def est_vide(self):
-        """Retourne True si la file est vide."""
-        return self.premier is None
-
-    def as_list(self):
-        """Implémentation minimale pour respecter Collection."""
-        resultat = []
-        curseur = self.premier
-        while curseur:
-            resultat.append(curseur.valeur)
-            curseur = curseur.prochain
-        return resultat
+    # -----------------------
+    # Méthode spécifique affichage FIFO
+    # -----------------------
 
     def afficher(self):
-        """Affiche le contenu de la file FIFO."""
+        """
+        Affichage spécifique FIFO.
+        """
         curseur = self.premier
         print("FileFIFO:", end=" ")
         while curseur:
