@@ -97,4 +97,5 @@ def test_to_dataframe_without_results(monkeypatch, capsys):
     captured = capsys.readouterr()
 
     assert df.empty
-    assert "Clé 'results' absente" in captured.out
+    assert "'results' key missing" in captured.out
+

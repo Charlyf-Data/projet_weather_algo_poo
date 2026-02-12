@@ -1,28 +1,44 @@
+"""
+Binary tree module.
+
+Provides a simple binary tree implementation
+that follows the Collection interface.
+"""
+
 from .collection import Collection
 
 
 class ArbreBinaire(Collection):
     """
-    Implémentation simple d'un arbre binaire.
-    Chaque noeud est lui-même un ArbreBinaire
-    (valeur + enfant gauche + enfant droit).
+    Simple binary tree implementation.
+
+    Each node is itself an ArbreBinaire instance:
+    - valeur
+    - gauche (left child)
+    - droite (right child)
     """
 
     def __init__(self, valeur=None):
+        """Initialize the binary tree node."""
         self.valeur = valeur
         self.gauche = None
         self.droite = None
 
     # -----------------------
-    # Méthodes "Collection"
+    # Collection methods
     # -----------------------
 
     def ajouter(self, valeur):
         """
-        Ajoute une valeur dans l'arbre.
-        Version simple : on remplit la racine, puis gauche, puis droite,
-        puis on descend récursivement à gauche.
-        Ce n'est PAS un arbre binaire de recherche, juste une structure.
+        Add a value to the tree.
+
+        Simple strategy:
+        - Fill root
+        - Then left
+        - Then right
+        - Then recurse on left subtree
+
+        This is NOT a binary search tree.
         """
         if self.valeur is None:
             self.valeur = valeur
@@ -33,15 +49,14 @@ class ArbreBinaire(Collection):
         elif self.droite is None:
             self.droite = ArbreBinaire(valeur)
         else:
-            # Si les deux enfants sont déjà remplis,
-            # on continue l'insertion dans le sous-arbre gauche.
             self.gauche.ajouter(valeur)
 
     def retirer(self):
         """
-        Retire la racine de l'arbre.
-        Renvoie la valeur de la racine, ou None si l'arbre est vide.
-        Pour simplifier, on "vide" complètement l'arbre.
+        Remove the root node.
+
+        Returns the root value or None if empty.
+        For simplicity, clears the entire tree.
         """
         if self.est_vide():
             return None
@@ -53,22 +68,20 @@ class ArbreBinaire(Collection):
         return valeur
 
     def est_vide(self):
-        """
-        Renvoie True si l'arbre ne contient aucune valeur.
-        """
+        """Return True if the tree is empty."""
         return self.valeur is None
 
     def as_list(self):
         """
-        Renvoie les valeurs de l'arbre sous forme de liste
-        en utilisant le parcours défini dans __iter__ (préfixe).
+        Return tree values as a list
+        using prefix traversal.
         """
         return list(self)
 
     def __iter__(self):
         """
-        Parcours préfixe : racine -> gauche -> droite.
-        Permet d'itérer sur l'arbre avec 'for x in arbre:'.
+        Prefix traversal:
+        root -> left -> right
         """
         if self.valeur is not None:
             yield self.valeur
@@ -78,13 +91,14 @@ class ArbreBinaire(Collection):
             yield from self.droite
 
     # -----------------------
-    # Méthodes utilitaires
+    # Utility methods
     # -----------------------
 
     def inserer_gauche(self, valeur):
         """
-        Insère une valeur en tant qu'enfant gauche direct.
-        Si un enfant gauche existe déjà, il devient enfant gauche du nouveau noeud.
+        Insert a value as direct left child.
+        If left child exists, it becomes
+        left child of the new node.
         """
         if self.gauche is None:
             self.gauche = ArbreBinaire(valeur)
@@ -95,8 +109,9 @@ class ArbreBinaire(Collection):
 
     def inserer_droite(self, valeur):
         """
-        Insère une valeur en tant qu'enfant droit direct.
-        Si un enfant droit existe déjà, il devient enfant droit du nouveau noeud.
+        Insert a value as direct right child.
+        If right child exists, it becomes
+        right child of the new node.
         """
         if self.droite is None:
             self.droite = ArbreBinaire(valeur)
@@ -106,10 +121,13 @@ class ArbreBinaire(Collection):
             self.droite = nouveau
 
     def get_gauche(self):
+        """Return left child."""
         return self.gauche
 
     def get_droite(self):
+        """Return right child."""
         return self.droite
 
     def get_valeur(self):
+        """Return node value."""
         return self.valeur
