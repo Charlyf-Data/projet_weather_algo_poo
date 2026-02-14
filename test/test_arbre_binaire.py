@@ -3,7 +3,7 @@ from projet.structure.arbre_binaire import ArbreBinaire
 
 
 # =========================================================
-# 1️⃣ Test arbre vide
+# 1️ Test arbre vide
 # =========================================================
 def test_arbre_initialement_vide():
 
@@ -15,7 +15,7 @@ def test_arbre_initialement_vide():
 
 
 # =========================================================
-# 2️⃣ Test ajouter valeur racine
+# 2️ Test ajouter valeur racine
 # =========================================================
 def test_ajouter_racine():
 
@@ -27,7 +27,7 @@ def test_ajouter_racine():
 
 
 # =========================================================
-# 3️⃣ Test ajouter gauche puis droite
+# 3️ Test ajouter gauche puis droite
 # =========================================================
 def test_ajouter_gauche_et_droite():
 
@@ -42,7 +42,7 @@ def test_ajouter_gauche_et_droite():
 
 
 # =========================================================
-# 4️⃣ Test ajout récursif quand plein
+# 4️ Test ajout récursif quand plein
 # =========================================================
 def test_ajout_recursif():
 
@@ -56,7 +56,7 @@ def test_ajout_recursif():
 
 
 # =========================================================
-# 5️⃣ Test retirer
+# 5️ Test retirer
 # =========================================================
 def test_retirer():
 
@@ -72,7 +72,7 @@ def test_retirer():
 
 
 # =========================================================
-# 6️⃣ Test parcours préfixe (__iter__)
+# 6️ Test parcours préfixe (__iter__)
 # =========================================================
 def test_iter_prefixe():
 
@@ -88,7 +88,7 @@ def test_iter_prefixe():
 
 
 # =========================================================
-# 7️⃣ Test as_list
+# 7️ Test as_list
 # =========================================================
 def test_as_list():
 
@@ -100,7 +100,7 @@ def test_as_list():
 
 
 # =========================================================
-# 8️⃣ Test inserer_gauche sans enfant existant
+# 8️ Test inserer_gauche sans enfant existant
 # =========================================================
 def test_inserer_gauche_simple():
 
@@ -111,7 +111,7 @@ def test_inserer_gauche_simple():
 
 
 # =========================================================
-# 9️⃣ Test inserer_gauche avec enfant existant
+# 9️ Test inserer_gauche avec enfant existant
 # =========================================================
 def test_inserer_gauche_avec_remplacement():
 
@@ -124,7 +124,7 @@ def test_inserer_gauche_avec_remplacement():
 
 
 # =========================================================
-# 🔟 Test inserer_droite simple
+# 10 Test inserer_droite simple
 # =========================================================
 def test_inserer_droite_simple():
 
@@ -135,7 +135,7 @@ def test_inserer_droite_simple():
 
 
 # =========================================================
-# 1️⃣1️⃣ Test inserer_droite avec remplacement
+# 11 Test inserer_droite avec remplacement
 # =========================================================
 def test_inserer_droite_avec_remplacement():
 

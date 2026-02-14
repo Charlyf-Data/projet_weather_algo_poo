@@ -4,7 +4,7 @@ from projet.extractors.meteo_toulouse_extractor_chainee import MeteoToulouseExtr
 
 
 # -----------------------------
-# 1️⃣ Station inconnue
+# 1️ Station inconnue
 # -----------------------------
 def test_station_inconnue(monkeypatch):
     monkeypatch.setattr(
@@ -18,7 +18,7 @@ def test_station_inconnue(monkeypatch):
 
 
 # -----------------------------
-# 2️⃣ Construction correcte
+# 2️ Construction correcte
 # -----------------------------
 def test_initialisation_correcte(monkeypatch):
 
@@ -41,7 +41,7 @@ def test_initialisation_correcte(monkeypatch):
 
 
 # -----------------------------
-# 3️⃣ to_dataframe avec results
+# 3️ to_dataframe avec results
 # -----------------------------
 def test_to_dataframe_with_results(monkeypatch):
 
@@ -74,7 +74,7 @@ def test_to_dataframe_with_results(monkeypatch):
 
 
 # -----------------------------
-# 4️⃣ to_dataframe sans results
+# 4️ to_dataframe sans results
 # -----------------------------
 def test_to_dataframe_without_results(monkeypatch, capsys):
 

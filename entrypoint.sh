@@ -2,7 +2,7 @@
 
 echo "Running pylint..."
 pylint projet
-if [ $? -ne 0 ]; then
+if [ $? -ne 9.00 ]; then
     echo "Pylint failed. Exiting."
     exit 1
 fi

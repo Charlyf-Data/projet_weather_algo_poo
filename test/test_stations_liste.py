@@ -3,7 +3,7 @@ from projet.extractors.stations_liste import Station, ListeStations
 
 
 # =========================================================
-# 1️⃣ Test création Station
+# 1️ Test création Station
 # =========================================================
 def test_station_creation_and_repr():
 
@@ -20,7 +20,7 @@ def test_station_creation_and_repr():
 
 
 # =========================================================
-# 2️⃣ Test chargement depuis config
+# 2️ Test chargement depuis config
 # =========================================================
 def test_charger_depuis_config():
 
@@ -44,7 +44,7 @@ def test_charger_depuis_config():
 
 
 # =========================================================
-# 3️⃣ Test trouver_par_cle trouvé
+# 3️ Test trouver_par_cle trouvé
 # =========================================================
 def test_trouver_par_cle_found():
 
@@ -62,7 +62,7 @@ def test_trouver_par_cle_found():
 
 
 # =========================================================
-# 4️⃣ Test trouver_par_cle non trouvé
+# 4️ Test trouver_par_cle non trouvé
 # =========================================================
 def test_trouver_par_cle_not_found():
 
@@ -79,7 +79,7 @@ def test_trouver_par_cle_not_found():
 
 
 # =========================================================
-# 5️⃣ Test afficher_stations
+# 5️ Test afficher_stations
 # =========================================================
 def test_afficher_stations(capsys):
 
